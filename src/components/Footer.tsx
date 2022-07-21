@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 function Footer() {
   return (
@@ -7,7 +7,7 @@ function Footer() {
         <small className="copyright">&copy; setFlowr</small>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

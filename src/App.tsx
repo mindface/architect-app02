@@ -1,11 +1,12 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import InfoSettings from "./pages/InfoSettings";
-import Record from "./pages/Record";
-import Layout from "./layout/index";
-import "./App.css";
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import InfoSettings from "./pages/InfoSettings"
+import Record from "./pages/Record"
+import Inspection from "./pages/Inspection"
+import Layout from "./layout/index"
+import "./App.css"
 
 function App() {
   return (
@@ -43,9 +44,17 @@ function App() {
             </Layout>
           }
         />
+        <Route
+          path="/inspection"
+          element={
+            <Layout>
+              <Inspection />
+            </Layout>
+          }
+        />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

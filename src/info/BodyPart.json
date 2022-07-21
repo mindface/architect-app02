@@ -1,87 +1,87 @@
 [
- {
-   "id": 1,
-   "part":"頭部",
-   "value":"head",
-   "segment":[
-     {
-       "segmentId":1,
-       "segmentBody": "目",
-       "segmentAttention": "視覚の注意"
-     },
-     {
-       "segmentId":2,
-       "segmentBody": "鼻",
-       "segmentAttention": "鼻呼吸について"
-     },
-     {
-      "segmentId":3,
-      "segmentBody": "口",
-      "segmentAttention": "呼吸も含める"
-     },
-     {
-      "segmentId":4,
-      "segmentBody": "耳",
-      "segmentAttention": "聴覚刺激の調整"
-     },
-     {
-      "segmentId":5,
-      "segmentBody": "顎",
-      "segmentAttention": "姿勢との関連"
-     },
-     {
-      "segmentId":6,
-      "segmentBody": "後頭部",
-      "segmentAttention": "三半規管の連係"
-     }
-   ]
- },
- {
-   "id": 3,
-   "part":"肩",
-   "value":"shoulder",
-   "segment":[]
- },
- {
-   "id": 4,
-   "part":"腕",
-   "value":"arm",
-   "segment":[]
- },
- {
-   "id": 5,
-   "part":"胸部",
-   "value":"chest",
-   "segment":[]
- },
- {
-   "id": 6,
-   "part":"腹",
-   "value":"stomach",
-   "segment":[]
- },
- {
-   "id": 7,
-   "part":"背中",
-   "value":"back",
-   "segment":[]
- },
- {
-   "id": 8,
-   "part":"腰",
-   "value":"waist",
-   "segment":[]
- },
- {
-   "id": 9,
-   "part":"足関節",
-   "value":"footKnee",
-   "segment":[]
- },
- {
-   "id": 10,
-   "part":"足首",
-   "value":"footAnkle",
-   "segment":[]
- }
+  {
+    "id": 1,
+    "part": "頭部",
+    "value": "head",
+    "segment": [
+      {
+        "segmentId": 1,
+        "segmentBody": "目",
+        "segmentAttention": "視覚の注意"
+      },
+      {
+        "segmentId": 2,
+        "segmentBody": "鼻",
+        "segmentAttention": "鼻呼吸について"
+      },
+      {
+        "segmentId": 3,
+        "segmentBody": "口",
+        "segmentAttention": "呼吸も含める"
+      },
+      {
+        "segmentId": 4,
+        "segmentBody": "耳",
+        "segmentAttention": "聴覚刺激の調整"
+      },
+      {
+        "segmentId": 5,
+        "segmentBody": "顎",
+        "segmentAttention": "姿勢との関連"
+      },
+      {
+        "segmentId": 6,
+        "segmentBody": "後頭部",
+        "segmentAttention": "三半規管の連係"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "part": "肩",
+    "value": "shoulder",
+    "segment": []
+  },
+  {
+    "id": 4,
+    "part": "腕",
+    "value": "arm",
+    "segment": []
+  },
+  {
+    "id": 5,
+    "part": "胸部",
+    "value": "chest",
+    "segment": []
+  },
+  {
+    "id": 6,
+    "part": "腹",
+    "value": "stomach",
+    "segment": []
+  },
+  {
+    "id": 7,
+    "part": "背中",
+    "value": "back",
+    "segment": []
+  },
+  {
+    "id": 8,
+    "part": "腰",
+    "value": "waist",
+    "segment": []
+  },
+  {
+    "id": 9,
+    "part": "足関節",
+    "value": "footKnee",
+    "segment": []
+  },
+  {
+    "id": 10,
+    "part": "足首",
+    "value": "footAnkle",
+    "segment": []
+  }
 ]

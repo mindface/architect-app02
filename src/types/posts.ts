@@ -1,35 +1,37 @@
 export interface Posts {
-  id: number;
-  category: string;
-  useTime: string;
-  part: string;
-  disc: string;
+  id: number
+  category: string
+  useTime: string
+  part: string
+  disc: string
   goal: string
-  createAt: string;
+  inspection: boolean
+  createAt: string
 }
 
 export interface Post {
-  id?: number;
-  category: string;
-  useTime: string;
-  part: string;
-  disc: string;
-  goal: string;
-  createAt: string;
+  id?: number
+  category: string
+  useTime: string
+  part: string
+  disc: string
+  goal: string
+  inspection: boolean
+  createAt: string
 }
 
 export interface SendPosts {
-  title: string;
-  body: string;
-  sub: string;
-  accout?: string;
+  title: string
+  body: string
+  sub: string
+  accout?: string
 }
 
 export interface ItemPost {
-  title: string;
-  body: string;
-  sub: string;
-  accout?: string;
+  title: string
+  body: string
+  sub: string
+  accout?: string
 }
 
 export interface BodyPart {
@@ -41,4 +43,4 @@ export interface BodyPart {
     segmentBody: string
     segmentAttention: string
   }[]
-} 
+}

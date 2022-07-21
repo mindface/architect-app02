@@ -1,44 +1,43 @@
-import { Action } from "redux";
-import { User, GetUser, GetFetchUser } from "../../../types/users";
-import { AppDispatch } from "../../index";
+import { Action } from "redux"
+import { User, GetUser, GetFetchUser } from "../../../types/users"
+import { AppDispatch } from "../../index"
 
-export const FETCH_USER_DATA_REQUEST = "FETCH_USER_DATA_REQUEST";
-export const FETCH_USER_DATA_SUCCESS = "FETCH_USER_DATA_SUCCESS";
-export const FETCH_USERS_DATA_SUCCESS = "FETCH_USERS_DATA_SUCCESS";
-export const FETCH_USER_DATA_FAILURE = "FETCH_USER_DATA_FAILURE";
-
+export const FETCH_USER_DATA_REQUEST = "FETCH_USER_DATA_REQUEST"
+export const FETCH_USER_DATA_SUCCESS = "FETCH_USER_DATA_SUCCESS"
+export const FETCH_USERS_DATA_SUCCESS = "FETCH_USERS_DATA_SUCCESS"
+export const FETCH_USER_DATA_FAILURE = "FETCH_USER_DATA_FAILURE"
 
 export interface UserState {
-  users: User[];
-  user: GetUser;
+  users: User[]
+  user: GetUser
 }
 
 export function initalUserState(): UserState {
   return {
     users: [],
     user: { id: 0, name: "", email: "" },
-  };
+  }
 }
 
 export interface UsersAction extends Action {
-  type: string;
-  users: User[];
+  type: string
+  users: User[]
 }
 
 export interface UserAction extends Action {
-  type: string;
-  user: GetUser;
+  type: string
+  user: GetUser
 }
 
 export interface UserActionReducer extends Action {
-  type: string;
-  users: User[];
-  user: GetUser;
+  type: string
+  users: User[]
+  user: GetUser
 }
 
 export interface UserActionFailure extends Action {
-  type: string;
-  err: string;
+  type: string
+  err: string
 }
 
 export function userReducer(
@@ -50,24 +49,24 @@ export function userReducer(
       return {
         ...state,
         users: [],
-      };
+      }
     case FETCH_USERS_DATA_SUCCESS:
       return {
         ...state,
         users: action["users"],
-      };
+      }
     case FETCH_USER_DATA_SUCCESS:
       return {
         ...state,
         user: action["user"],
-      };
+      }
     case FETCH_USER_DATA_FAILURE:
       return {
         ...state,
         users: [],
-      };
+      }
     default:
-      return state;
+      return state
   }
 }
 
@@ -75,29 +74,29 @@ export const userFetchDataRequest = (): UsersAction => {
   return {
     type: FETCH_USER_DATA_REQUEST,
     users: [],
-  };
-};
+  }
+}
 
 export const usersFetchDataSuccess = (data: User[]): UsersAction => {
   return {
     type: FETCH_USERS_DATA_SUCCESS,
     users: data,
-  };
-};
+  }
+}
 
 export const userFetchDataSuccess = (data: GetUser): UserAction => {
   return {
     type: FETCH_USER_DATA_SUCCESS,
     user: data,
-  };
-};
+  }
+}
 
 export const userFetchDataFailure = (err: string): UserActionFailure => {
   return {
     type: FETCH_USER_DATA_FAILURE,
     err: err,
-  };
-};
+  }
+}
 
 // export const getUserData = (token: string) => {
 //   return async (dispatch: AppDispatch) => {

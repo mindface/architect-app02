@@ -1,21 +1,21 @@
 export interface Observer {
-  id?: number;
-  title: string,
-  href: string,
-  disc: string,
-  differenceInfo: string,
-  result: string,
-  methodId: string,
-  goalRate: string,
-  goalScore: number,
-  playScore: number,
+  id?: number
+  title: string
+  href: string
+  disc: string
+  differenceInfo: string
+  result: string
+  methodId: string
+  goalRate: string
+  goalScore: number
+  playScore: number
 }
 
 export interface SendObserver {
-  title: string;
-  body: string;
-  sub: string;
-  accout?: string;
+  title: string
+  body: string
+  sub: string
+  accout?: string
 }
 
 export interface BodyObserver {
@@ -27,4 +27,4 @@ export interface BodyObserver {
     segmentBody: string
     segmentAttention: string
   }[]
-} 
+}

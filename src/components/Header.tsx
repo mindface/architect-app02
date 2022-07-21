@@ -26,7 +26,7 @@ function Header() {
       <header className="header pl-2 pt-1 pb-1 bg-w-c border-b">
         <div className="inner flex flex-just-sb pl-2 pr-2">
           <div className="logo">
-            <img src="/images/logo.png" alt="" />
+            <img src="/images/Logo.png" alt="" />
           </div>
           <Button type="primary" onClick={showDrawer}>
             <MenuOutlined />

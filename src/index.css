@@ -178,6 +178,9 @@ img {
 .f-align-c {
   align-items: center;
 }
+.d-b {
+  display: block;
+}
 .d-i {
   display: inline-block;
 }

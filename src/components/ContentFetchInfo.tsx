@@ -47,7 +47,6 @@ function ContentFetchInfo() {
     <section className="c-section p-2">
       <Row gutter={16}>
         {post.map((item: Post) => {
-          console.log(item)
           return (
             <Col span={8} key={item.id}>
               <Card

@@ -5,6 +5,7 @@ import About from "./pages/About"
 import InfoSettings from "./pages/InfoSettings"
 import Record from "./pages/Record"
 import Inspection from "./pages/Inspection"
+import PatternTrigger from "./pages/PatternTrigger"
 import Layout from "./layout/index"
 import "./App.css"
 
@@ -49,6 +50,14 @@ function App() {
           element={
             <Layout>
               <Inspection />
+            </Layout>
+          }
+        />
+      <Route
+          path="/patternTrigger"
+          element={
+            <Layout>
+              <PatternTrigger />
             </Layout>
           }
         />

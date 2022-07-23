@@ -5,11 +5,12 @@ import { MenuOutlined } from "@ant-design/icons"
 
 function Header() {
   const pageList = [
-    { id: "/", label: "home" },
-    { id: "/about", label: "about" },
-    { id: "/infoSettings", label: "infoSettings" },
-    { id: "/record", label: "record" },
-    { id: "/inspection", label: "inspection" },
+    { id: "/", label: "ホーム" },
+    { id: "/about", label: "このサービスについて" },
+    { id: "/infoSettings", label: "データ操作" },
+    { id: "/record", label: "カレンダーで確認" },
+    { id: "/inspection", label: "検証調整" },
+    { id: "/patternTrigger", label: "行動サイクルとトリガー" },
   ]
   const [visible, setVisible] = useState(false)
 
@@ -26,7 +27,7 @@ function Header() {
       <header className="header pl-2 pt-1 pb-1 bg-w-c border-b">
         <div className="inner flex flex-just-sb pl-2 pr-2">
           <div className="logo">
-            <img src="/images/Logo.png" alt="" />
+            <img src="/images/baseLogo.png" alt="" />
           </div>
           <Button type="primary" onClick={showDrawer}>
             <MenuOutlined />
@@ -34,6 +35,7 @@ function Header() {
         </div>
         <Drawer
           title="メニュー"
+          size={'small'}
           placement="right"
           onClose={onClose}
           visible={visible}
@@ -43,7 +45,7 @@ function Header() {
               return (
                 <li className="item" key={item.id}>
                   <Link
-                    className="link d-i p-1"
+                    className="link d-b p-1"
                     to={item.id}
                     onClick={() => setVisible(false)}
                   >

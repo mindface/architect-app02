@@ -1,16 +1,11 @@
 import React, {
   useEffect,
   useState,
-  forwardRef,
-  useImperativeHandle,
 } from "react"
-import { Button, Transfer } from "antd"
-import type { TransferDirection, TransferListProps } from "antd/es/transfer"
-import bodyPart from "../info/BodyPart.json"
+import { Transfer } from "antd"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { RootStore } from "../store/modules/reducer"
-import { AddPostData, UpdatePostData } from "../store/modules/data_action/post"
 import { AppDispatch } from "../store"
 import { setLabel } from "../helper/Utility"
 

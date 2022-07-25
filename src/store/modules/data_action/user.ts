@@ -2,11 +2,6 @@ import { Action } from "redux"
 import { User, GetUser, GetFetchUser } from "../../../types/users"
 import { AppDispatch } from "../../index"
 
-export const FETCH_USER_DATA_REQUEST = "FETCH_USER_DATA_REQUEST"
-export const FETCH_USER_DATA_SUCCESS = "FETCH_USER_DATA_SUCCESS"
-export const FETCH_USERS_DATA_SUCCESS = "FETCH_USERS_DATA_SUCCESS"
-export const FETCH_USER_DATA_FAILURE = "FETCH_USER_DATA_FAILURE"
-
 export interface UserState {
   users: User[]
   user: GetUser
@@ -45,22 +40,27 @@ export function userReducer(
   action: UserActionReducer
 ) {
   switch (action.type) {
-    case FETCH_USER_DATA_REQUEST:
+    case 'users/request':
       return {
         ...state,
         users: [],
       }
-    case FETCH_USERS_DATA_SUCCESS:
+    case 'users/success':
       return {
         ...state,
         users: action["users"],
       }
-    case FETCH_USER_DATA_SUCCESS:
+    case 'user/success':
       return {
         ...state,
         user: action["user"],
       }
-    case FETCH_USER_DATA_FAILURE:
+    case 'user/set':
+      return {
+        ...state,
+        user: action["user"],
+      }
+    case 'users/failure':
       return {
         ...state,
         users: [],
@@ -72,28 +72,28 @@ export function userReducer(
 
 export const userFetchDataRequest = (): UsersAction => {
   return {
-    type: FETCH_USER_DATA_REQUEST,
+    type: 'users/request',
     users: [],
   }
 }
 
 export const usersFetchDataSuccess = (data: User[]): UsersAction => {
   return {
-    type: FETCH_USERS_DATA_SUCCESS,
+    type: 'users/success',
     users: data,
   }
 }
 
 export const userFetchDataSuccess = (data: GetUser): UserAction => {
   return {
-    type: FETCH_USER_DATA_SUCCESS,
+    type: 'user/success',
     user: data,
   }
 }
 
 export const userFetchDataFailure = (err: string): UserActionFailure => {
   return {
-    type: FETCH_USER_DATA_FAILURE,
+    type: 'users/failure',
     err: err,
   }
 }

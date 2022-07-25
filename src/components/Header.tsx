@@ -35,7 +35,6 @@ function Header() {
         </div>
         <Drawer
           title="メニュー"
-          size={'small'}
           placement="right"
           onClose={onClose}
           visible={visible}

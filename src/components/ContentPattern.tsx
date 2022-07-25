@@ -3,7 +3,7 @@ import React, {
   useState,
 } from "react"
 import { Button, Modal, Col, Input, InputNumber, Row, Slider, Typography } from "antd"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { RootStore } from "../store/modules/reducer"
 import { AppDispatch } from "../store"
 import { Proportion } from "../types/proportion"

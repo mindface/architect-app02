@@ -1,18 +1,46 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { Button, Drawer } from "antd"
-import { MenuOutlined } from "@ant-design/icons"
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button, Drawer } from 'antd'
+import { MenuOutlined } from '@ant-design/icons'
+import { getAuth, signOut } from 'firebase/auth'
+import { initializeApp } from 'firebase/app'
+import { RootStore } from '../store/modules/reducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch } from '../store'
+import firebaseConfig from '../info/firebase-config.json'
 
 function Header() {
+  const dispatch: AppDispatch = useDispatch()
+  const navigate = useNavigate()
+  const app = initializeApp(firebaseConfig)
+  const auth = getAuth(app)
+  const user = useSelector((state: RootStore) => state.user.user)
   const pageList = [
-    { id: "/", label: "ホーム" },
-    { id: "/about", label: "このサービスについて" },
-    { id: "/infoSettings", label: "データ操作" },
-    { id: "/record", label: "カレンダーで確認" },
-    { id: "/inspection", label: "検証調整" },
-    { id: "/patternTrigger", label: "行動サイクルとトリガー" },
+    { id: '/', label: 'ホーム' },
+    { id: '/about', label: 'このサービスについて' },
+    { id: '/infoSettings', label: 'データ操作' },
+    { id: '/record', label: 'カレンダーで確認' },
+    { id: '/inspection', label: '検証調整' },
+    { id: '/patternTrigger', label: '行動サイクルとトリガー' },
   ]
   const [visible, setVisible] = useState(false)
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        const user = {
+          id: 0,
+          name: '',
+          email: '',
+        }
+        dispatch({ type: 'user/set', user })
+        onClose()
+        navigate('/login')
+      })
+      .catch((error) => {
+        console.log('sign out')
+      })
+  }
 
   const showDrawer = () => {
     setVisible(true)
@@ -29,9 +57,11 @@ function Header() {
           <div className="logo">
             <img src="/images/baseLogo.png" alt="" />
           </div>
-          <Button type="primary" onClick={showDrawer}>
-            <MenuOutlined />
-          </Button>
+          {user.name !== '' && (
+            <Button type="primary" onClick={showDrawer}>
+              <MenuOutlined />
+            </Button>
+          )}
         </div>
         <Drawer
           title="メニュー"
@@ -53,6 +83,19 @@ function Header() {
                 </li>
               )
             })}
+            {user.name !== '' && (
+              <li className="item">
+                <a
+                  className="link d-b p-1"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleSignOut()
+                  }}
+                >
+                  ログアウト
+                </a>
+              </li>
+            )}
           </ul>
         </Drawer>
       </header>

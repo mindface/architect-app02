@@ -1,10 +1,10 @@
-import React from "react"
-import { Tabs } from "antd"
-import ContentFetchInfo from "../components/ContentFetchInfo"
-import ContentForm from "../components/ContentForm"
-import ContentObForm from "../components/ContentObForm"
-import ContentCustom from "../components/ContentCustom"
-import ContentObPlan from "../components/ContentObPlan"
+import React from 'react'
+import { Tabs } from 'antd'
+import ContentFetchInfo from '../components/ContentFetchInfo'
+import ContentForm from '../components/ContentForm'
+import ContentObForm from '../components/ContentObForm'
+import ContentCustom from '../components/ContentCustom'
+import ContentObPlan from '../components/ContentObPlan'
 
 function Home() {
   const { TabPane } = Tabs

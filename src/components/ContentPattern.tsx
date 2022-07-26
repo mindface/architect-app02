@@ -1,20 +1,26 @@
-import React, {
-  useEffect,
-  useState,
-} from "react"
-import { Button, Modal, Col, Input, InputNumber, Row, Slider, Typography } from "antd"
-import { useDispatch } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
-import { AppDispatch } from "../store"
-import { Proportion } from "../types/proportion"
+import React, { useEffect, useState } from 'react'
+import {
+  Button,
+  Modal,
+  Col,
+  Input,
+  InputNumber,
+  Row,
+  Slider,
+  Typography,
+} from 'antd'
+import { useDispatch } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
+import { AppDispatch } from '../store'
+import { Proportion } from '../types/proportion'
 const { Title } = Typography
 
 type Props = {
   item: Proportion
 }
 
-function ContentPattern(props:Props) {
-  const dispatch:AppDispatch = useDispatch()
+function ContentPattern(props: Props) {
+  const dispatch: AppDispatch = useDispatch()
   const item = props.item
   const itemData = {
     id: 0,
@@ -22,70 +28,75 @@ function ContentPattern(props:Props) {
     level: 0,
     doing: 0,
     planing: 0,
-    play: 0
+    play: 0,
   }
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [inputValue, inputValueSet] = useState(itemData);
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [inputValue, inputValueSet] = useState(itemData)
 
   const showModal = () => {
-    setIsModalVisible(true);
-  };
+    setIsModalVisible(true)
+  }
 
   const handleOk = () => {
-    setIsModalVisible(false);
-  };
+    setIsModalVisible(false)
+  }
 
   const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
+    setIsModalVisible(false)
+  }
 
   const setPropsItem = () => {
-    return new Promise((resolve,reject):void => {
-      if(item.title) {
+    return new Promise((resolve, reject): void => {
+      if (item.title) {
         inputValueSet({
           id: item.id!,
           title: item.title,
           level: item.level,
           doing: item.doing,
           planing: item.planing,
-          play: item.play
+          play: item.play,
         })
         resolve(undefined)
       }
     })
-
   }
-  const onChange = (value: number,type:string) => {
+  const onChange = (value: number, type: string) => {
     if (isNaN(value)) {
-      return;
-    }
-    inputValueSet({...inputValue,[type]: value});
-  };
-
-  const setAction =() => {
-    const item = inputValue
-    const counter = inputValue.level + inputValue.doing + inputValue.planing + inputValue.play
-    if(counter > 1.0) {
-      setIsModalVisible(true);
       return
     }
-    dispatch({type:'proportion/set',item})
+    inputValueSet({ ...inputValue, [type]: value })
+  }
+
+  const setAction = () => {
+    const item = inputValue
+    const counter =
+      inputValue.level + inputValue.doing + inputValue.planing + inputValue.play
+    if (counter > 1.0) {
+      setIsModalVisible(true)
+      return
+    }
+    dispatch({ type: 'proportion/set', item })
     inputValueSet(itemData)
   }
 
   useEffect(() => {
     setPropsItem()
-  },[])
-
+  }, [])
 
   return (
     <div className="pattern bg-w-c p-2">
-      <Typography>対象の問題解決のリソースがベースに全体を100%としてください。</Typography>
+      <Typography>
+        対象の問題解決のリソースがベースに全体を100%としてください。
+      </Typography>
       <Row className="pb-2">
         <Col span={12}>
           <Title level={5}>目的達成のための主要問題</Title>
-          <Input value={inputValue.title} onChange={(e) => inputValueSet({...inputValue,title: e.currentTarget.value})} />
+          <Input
+            value={inputValue.title}
+            onChange={(e) =>
+              inputValueSet({ ...inputValue, title: e.currentTarget.value })
+            }
+          />
         </Col>
       </Row>
       <Row className="pb-2">
@@ -94,7 +105,7 @@ function ContentPattern(props:Props) {
           <Slider
             min={0}
             max={1}
-            onChange={(e) => onChange(e,'level')}
+            onChange={(e) => onChange(e, 'level')}
             value={typeof inputValue.level === 'number' ? inputValue.level : 0}
             step={0.01}
           />
@@ -115,7 +126,7 @@ function ContentPattern(props:Props) {
           <Slider
             min={0}
             max={1}
-            onChange={(e) => onChange(e,'doing')}
+            onChange={(e) => onChange(e, 'doing')}
             value={typeof inputValue.doing === 'number' ? inputValue.doing : 0}
             step={0.01}
           />
@@ -136,8 +147,10 @@ function ContentPattern(props:Props) {
           <Slider
             min={0}
             max={1}
-            onChange={(e) => onChange(e,'planing')}
-            value={typeof inputValue.planing === 'number' ? inputValue.planing : 0}
+            onChange={(e) => onChange(e, 'planing')}
+            value={
+              typeof inputValue.planing === 'number' ? inputValue.planing : 0
+            }
             step={0.01}
           />
         </Col>
@@ -157,7 +170,7 @@ function ContentPattern(props:Props) {
           <Slider
             min={0}
             max={1}
-            onChange={(e) => onChange(e,'play')}
+            onChange={(e) => onChange(e, 'play')}
             value={typeof inputValue.play === 'number' ? inputValue.play : 0}
             step={0.01}
           />
@@ -174,12 +187,27 @@ function ContentPattern(props:Props) {
       </Row>
       <Row className="pb-2">
         <Col span={4}>
-          <Typography>現在の合計　| {inputValue.level + inputValue.doing + inputValue.planing + inputValue.play} <br />合計は1未満にしてください。</Typography>
+          <Typography>
+            現在の合計　|{' '}
+            {inputValue.level +
+              inputValue.doing +
+              inputValue.planing +
+              inputValue.play}{' '}
+            <br />
+            合計は1未満にしてください。
+          </Typography>
           <Button onClick={() => setAction()}>データセット</Button>
         </Col>
       </Row>
-      <Modal title="入力値に問題があります。" visible={isModalVisible} footer={null}>
-        <Typography className="pb-2">合計が1.0以下にしてください。<br /></Typography>
+      <Modal
+        title="入力値に問題があります。"
+        visible={isModalVisible}
+        footer={null}
+      >
+        <Typography className="pb-2">
+          合計が1.0以下にしてください。
+          <br />
+        </Typography>
         <Button onClick={handleCancel}>閉じる</Button>
       </Modal>
     </div>

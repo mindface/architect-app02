@@ -1,12 +1,12 @@
-import React, { useState, ReactNode } from "react"
-import type { BadgeProps } from "antd"
-import { Button, Badge, Calendar, Modal, Divider, List, Typography } from "antd"
-import type { Moment } from "moment"
-import { useDispatch, useSelector } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
-import { AppDispatch } from "../store"
-import { setDay } from "../helper/Utility"
-import { Post } from "../types/posts"
+import React, { useState, ReactNode } from 'react'
+import type { BadgeProps } from 'antd'
+import { Button, Badge, Calendar, Modal, Divider, List, Typography } from 'antd'
+import type { Moment } from 'moment'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
+import { AppDispatch } from '../store'
+import { setDay } from '../helper/Utility'
+import { Post } from '../types/posts'
 
 type ListData = {
   type: string
@@ -31,7 +31,7 @@ function ContentCustom() {
       const day = `${value.year()}/${value.month() + 1}/${value.date()}`
       if (day === setDay(item.createAt)) {
         listData.push({
-          type: "success",
+          type: 'success',
           content: (
             <Button onClick={() => modalPostAction(item)}>{item.disc}</Button>
           ),
@@ -64,7 +64,7 @@ function ContentCustom() {
         {listData.map((item: ListData, index: number) => (
           <li key={index}>
             <Badge
-              status={item.type as BadgeProps["status"]}
+              status={item.type as BadgeProps['status']}
               text={item.content}
             />
           </li>

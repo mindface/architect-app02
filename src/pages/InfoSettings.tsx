@@ -1,7 +1,7 @@
-import React from "react"
-import { Tabs } from "antd"
-import SectionFetchInfo from "../components/ContentFetchInfo"
-import ContentDataTool from "../components/ContentDataTool"
+import React from 'react'
+import { Tabs } from 'antd'
+import SectionFetchInfo from '../components/ContentFetchInfo'
+import ContentDataTool from '../components/ContentDataTool'
 
 function InfoSettings() {
   const { TabPane } = Tabs

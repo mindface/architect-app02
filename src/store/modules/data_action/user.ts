@@ -1,6 +1,6 @@
-import { Action } from "redux"
-import { User, GetUser, GetFetchUser } from "../../../types/users"
-import { AppDispatch } from "../../index"
+import { Action } from 'redux'
+import { User, GetUser, GetFetchUser } from '../../../types/users'
+import { AppDispatch } from '../../index'
 
 export interface UserState {
   users: User[]
@@ -10,7 +10,7 @@ export interface UserState {
 export function initalUserState(): UserState {
   return {
     users: [],
-    user: { id: 0, name: "", email: "" },
+    user: { id: 0, name: '', email: '' },
   }
 }
 
@@ -48,17 +48,17 @@ export function userReducer(
     case 'users/success':
       return {
         ...state,
-        users: action["users"],
+        users: action['users'],
       }
     case 'user/success':
       return {
         ...state,
-        user: action["user"],
+        user: action['user'],
       }
     case 'user/set':
       return {
         ...state,
-        user: action["user"],
+        user: action['user'],
       }
     case 'users/failure':
       return {

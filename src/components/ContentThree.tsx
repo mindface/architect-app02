@@ -1,12 +1,8 @@
-import React, {
-  useEffect,
-  useState,
-  useRef
-} from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
-import { AppDispatch } from "../store"
-import ThreeModle from "../helper/three-modle";
+import React, { useEffect, useState, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
+import { AppDispatch } from '../store'
+import ThreeModle from '../helper/three-modle'
 
 interface RecordType {
   key: string
@@ -26,11 +22,11 @@ function ContentThree() {
   useEffect(() => {
     const three = new ThreeModle(canvas.current!)
     three.Init(item)
-  },[])
+  }, [])
 
   return (
     <div className="view">
-      <canvas ref={canvas} ></canvas>
+      <canvas ref={canvas}></canvas>
     </div>
   )
 }

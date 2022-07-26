@@ -1,6 +1,6 @@
-import React from "react"
-import { Typography } from "antd"
-import ContentRecord from "../components/ContentRecord"
+import React from 'react'
+import { Typography } from 'antd'
+import ContentRecord from '../components/ContentRecord'
 const { Title } = Typography
 
 function Record() {

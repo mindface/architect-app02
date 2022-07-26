@@ -1,5 +1,5 @@
-import fs from "fs"
-import moment from "moment"
+import fs from 'fs'
+import moment from 'moment'
 // var fs = require('fs')
 // var moment = require('moment')
 
@@ -34,24 +34,24 @@ function createFile(pathName) {
   var reObData = []
   for (let index = 1; index <= 400; index++) {
     rePostData.push({
-      category: "arm",
-      disc: "情報のレベライズ0" + index,
-      goal: "サーブの向上",
+      category: 'arm',
+      disc: '情報のレベライズ0' + index,
+      goal: 'サーブの向上',
       id: index,
-      part: "打つ時の幅",
-      useTime: "22",
+      part: '打つ時の幅',
+      useTime: '22',
       inspection: false,
-      createAt: moment(now.format()).subtract(index, "d"),
+      createAt: moment(now.format()).subtract(index, 'd'),
     })
     reObData.push({
       id: index,
-      title: "方法利用後の結果0" + index,
-      href: "http://",
-      disc: "サーブの向上",
-      differenceInfo: "",
-      result: "",
-      methodId: "",
-      goalRate: "0",
+      title: '方法利用後の結果0' + index,
+      href: 'http://',
+      disc: 'サーブの向上',
+      differenceInfo: '',
+      result: '',
+      methodId: '',
+      goalRate: '0',
       goalScore: 0,
       playScore: 0,
     })
@@ -64,10 +64,10 @@ function createFile(pathName) {
       if (err) {
         console.log(err)
       } else {
-        console.log("_______________________完了_______________________")
+        console.log('_______________________完了_______________________')
       }
     }
   )
 }
 
-createFile("data.json")
+createFile('data.json')

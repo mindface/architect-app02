@@ -3,14 +3,14 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
-} from "react"
-import { Button, Carousel, Typography } from "antd"
+} from 'react'
+import { Button, Carousel, Typography } from 'antd'
 
 const contentStyle: React.CSSProperties = {
-  padding: "16px",
-  color: "#fff",
-  textAlign: "center",
-  background: "#f6f8ff",
+  padding: '16px',
+  color: '#fff',
+  textAlign: 'center',
+  background: '#f6f8ff',
 }
 const { Title, Paragraph } = Typography
 
@@ -25,7 +25,7 @@ function ContentSlide() {
           <Title level={4}>About service</Title>
           <Paragraph
             ellipsis={
-              true ? { rows: 2, expandable: true, symbol: "more" } : false
+              true ? { rows: 2, expandable: true, symbol: 'more' } : false
             }
           >
             練習プランを記録して、自分で言葉として意識した情報と結果を比較して、結果からの情報量と調整します。

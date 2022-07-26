@@ -1,9 +1,9 @@
 {
- "apiKey": "AIzaSyAQjFE2jhflypQhTI6ckYalkYbfEC0Z94A",
- "authDomain": "reedjobs.firebaseapp.com",
- "projectId": "reedjobs",
- "storageBucket": "reedjobs.appspot.com",
- "messagingSenderId": "993317286412",
- "appId": "1:993317286412:web:d2a06be181c0e0cc98b429",
- "measurementId": "G-YZDLV567GX"
+  "apiKey": "AIzaSyAQjFE2jhflypQhTI6ckYalkYbfEC0Z94A",
+  "authDomain": "reedjobs.firebaseapp.com",
+  "projectId": "reedjobs",
+  "storageBucket": "reedjobs.appspot.com",
+  "messagingSenderId": "993317286412",
+  "appId": "1:993317286412:web:d2a06be181c0e0cc98b429",
+  "measurementId": "G-YZDLV567GX"
 }

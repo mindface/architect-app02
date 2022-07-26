@@ -1,14 +1,14 @@
-import React, { useState, useRef } from "react"
-import { List, Progress, Modal, Button } from "antd"
+import React, { useState, useRef } from 'react'
+import { List, Progress, Modal, Button } from 'antd'
 import {
   EditOutlined,
   FundViewOutlined,
   DeleteOutlined,
-} from "@ant-design/icons"
-import { useSelector } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
+} from '@ant-design/icons'
+import { useSelector } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
 
-import ContentObForm from "./ContentObForm"
+import ContentObForm from './ContentObForm'
 
 function ContentObPlan() {
   const observer = useSelector((state: RootStore) => {
@@ -17,7 +17,7 @@ function ContentObPlan() {
   })
   const [isModalVisible, isModalVisibleSet] = useState(false)
   const [postId, postIdSet] = useState(0)
-  const [modalType, modalTypeSet] = useState("create")
+  const [modalType, modalTypeSet] = useState('create')
   const form = useRef<HTMLDivElement>(null)
 
   const handleOk = () => {
@@ -31,13 +31,13 @@ function ContentObPlan() {
   const editAction = (id: number) => {
     isModalVisibleSet(true)
     postIdSet(id)
-    modalTypeSet("edit")
+    modalTypeSet('edit')
   }
   const viewAction = (id: number) => {}
   const deleteAction = (id: number) => {
     isModalVisibleSet(true)
     postIdSet(id)
-    modalTypeSet("delete")
+    modalTypeSet('delete')
   }
 
   return (

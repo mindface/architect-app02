@@ -1,6 +1,6 @@
-import { Store, Action, Dispatch, AnyAction } from "redux"
-import { Observer, SendObserver } from "../../../types/observer"
-import { RootStore } from "../reducer"
+import { Store, Action, Dispatch, AnyAction } from 'redux'
+import { Observer, SendObserver } from '../../../types/observer'
+import { RootStore } from '../reducer'
 
 export interface ObserverState {
   isFetching: boolean
@@ -9,43 +9,43 @@ export interface ObserverState {
 }
 
 export function initalObserverState(): ObserverState {
-  const _items = localStorage.getItem("observerItems") as string
+  const _items = localStorage.getItem('observerItems') as string
   let items: Observer[] = JSON.parse(_items) ? JSON.parse(_items) : []
-  if (typeof items === "string" || items.length === 0 || items === null)
+  if (typeof items === 'string' || items.length === 0 || items === null)
     items = [
       {
         id: 1,
-        title: "方法利用後の結果",
-        href: "http://",
-        disc: "サーブの向上",
-        differenceInfo: "",
-        result: "",
-        methodId: "",
-        goalRate: "",
+        title: '方法利用後の結果',
+        href: 'http://',
+        disc: 'サーブの向上',
+        differenceInfo: '',
+        result: '',
+        methodId: '',
+        goalRate: '',
         goalScore: 0,
         playScore: 0,
       },
       {
         id: 2,
-        title: "方法利用後の結果02",
-        href: "http://",
-        disc: "サーブの向上",
-        differenceInfo: "",
-        result: "",
-        methodId: "",
-        goalRate: "30",
+        title: '方法利用後の結果02',
+        href: 'http://',
+        disc: 'サーブの向上',
+        differenceInfo: '',
+        result: '',
+        methodId: '',
+        goalRate: '30',
         goalScore: 0,
         playScore: 0,
       },
       {
         id: 3,
-        title: "方法利用後の結果03",
-        href: "http://",
-        disc: "サーブの向上",
-        differenceInfo: "",
-        result: "",
-        methodId: "",
-        goalRate: "40",
+        title: '方法利用後の結果03',
+        href: 'http://',
+        disc: 'サーブの向上',
+        differenceInfo: '',
+        result: '',
+        methodId: '',
+        goalRate: '40',
         goalScore: 0,
         playScore: 0,
       },
@@ -55,13 +55,13 @@ export function initalObserverState(): ObserverState {
     items: items,
     item: {
       id: 1,
-      title: "方法利用後の結果",
-      href: "http://",
-      disc: "サーブの向上",
-      differenceInfo: "",
-      result: "",
-      methodId: "",
-      goalRate: "50",
+      title: '方法利用後の結果',
+      href: 'http://',
+      disc: 'サーブの向上',
+      differenceInfo: '',
+      result: '',
+      methodId: '',
+      goalRate: '50',
       goalScore: 0,
       playScore: 0,
     },
@@ -85,58 +85,58 @@ export function observerReducer(
   action: ObserverAction
 ) {
   switch (action.type) {
-    case "observer/request":
+    case 'observer/request':
       return {
         ...state,
         isFetching: true,
         items: [],
       }
-    case "observer/success":
+    case 'observer/success':
       return {
         ...state,
         isFetching: false,
-        items: action["items"],
+        items: action['items'],
       }
-    case "observer/failure":
+    case 'observer/failure':
       return {
         ...state,
         isFetching: false,
         items: [],
       }
-    case "observer/add":
-      localStorage.setItem("observerItems", JSON.stringify(action["item"]))
+    case 'observer/add':
+      localStorage.setItem('observerItems', JSON.stringify(action['item']))
       return {
         ...state,
         isFetching: false,
-        items: action["item"],
+        items: action['item'],
       }
-    case "observer/set":
-      localStorage.setItem("observerItems", JSON.stringify(action["items"]))
+    case 'observer/set':
+      localStorage.setItem('observerItems', JSON.stringify(action['items']))
       return {
         ...state,
         isFetching: false,
-        items: action["items"],
+        items: action['items'],
       }
-    case "observer/update":
+    case 'observer/update':
       const updateList = state.items.map((item: Observer) => {
-        if (item.id === action["item"]?.id) {
-          return action["item"]
+        if (item.id === action['item']?.id) {
+          return action['item']
         }
         return item
       })
-      localStorage.setItem("observerItems", JSON.stringify(updateList))
+      localStorage.setItem('observerItems', JSON.stringify(updateList))
       return {
         ...state,
         isFetching: false,
         items: updateList,
       }
-    case "observer/delete":
+    case 'observer/delete':
       const deleteList = state.items.filter((item: Observer) => {
-        if (item.id !== action["dataId"]) {
+        if (item.id !== action['dataId']) {
           return item
         }
       })
-      localStorage.setItem("items", JSON.stringify(deleteList))
+      localStorage.setItem('items', JSON.stringify(deleteList))
       return {
         ...state,
         isFetching: false,
@@ -149,7 +149,7 @@ export function observerReducer(
 
 export const postFetchDataRequest = (): ObserverAction => {
   return {
-    type: "observer/request",
+    type: 'observer/request',
     items: [],
     item: {},
   }
@@ -157,7 +157,7 @@ export const postFetchDataRequest = (): ObserverAction => {
 
 export const postFetchDataSuccess = (data: Observer[]): ObserverAction => {
   return {
-    type: "observer/success",
+    type: 'observer/success',
     items: data,
     item: {},
   }
@@ -165,7 +165,7 @@ export const postFetchDataSuccess = (data: Observer[]): ObserverAction => {
 
 export const postFetchDataFailure = (err: string): ObserverActionFailure => {
   return {
-    type: "observer/failure",
+    type: 'observer/failure',
     err: err,
   }
 }

@@ -1,6 +1,6 @@
-import { Store, Action, Dispatch, AnyAction } from "redux"
-import { Posts, Post, SendPosts } from "../../../types/posts"
-import { setDay } from "../../../helper/Utility"
+import { Store, Action, Dispatch, AnyAction } from 'redux'
+import { Posts, Post, SendPosts } from '../../../types/posts'
+import { setDay } from '../../../helper/Utility'
 
 export interface PostState {
   isFetching: boolean
@@ -15,51 +15,51 @@ export interface PostState {
 }
 
 export function initalPostsState(): PostState {
-  const _postItems = localStorage.getItem("postItems") as string
+  const _postItems = localStorage.getItem('postItems') as string
   let postItems: Post[] = JSON.parse(_postItems) ? JSON.parse(_postItems) : []
   if (
-    typeof postItems === "string" ||
+    typeof postItems === 'string' ||
     postItems === null ||
     postItems.length === 0
   )
     postItems = [
       {
-        category: "arm",
-        disc: "情報のレベライズ01",
-        goal: "サーブの向上",
+        category: 'arm',
+        disc: '情報のレベライズ01',
+        goal: 'サーブの向上',
         id: 1,
-        part: "打つ時の幅",
-        useTime: "22",
+        part: '打つ時の幅',
+        useTime: '22',
         inspection: false,
         createAt: setDay(),
       },
       {
-        category: "arm",
-        disc: "情報のレベライズ02",
-        goal: "サーブの向上",
+        category: 'arm',
+        disc: '情報のレベライズ02',
+        goal: 'サーブの向上',
         id: 2,
-        part: "打つ時の幅",
-        useTime: "22",
+        part: '打つ時の幅',
+        useTime: '22',
         inspection: false,
         createAt: setDay(),
       },
       {
-        category: "arm",
-        disc: "情報のレベライズ03",
-        goal: "サーブの向上",
+        category: 'arm',
+        disc: '情報のレベライズ03',
+        goal: 'サーブの向上',
         id: 3,
-        part: "打つ時の幅",
-        useTime: "22",
+        part: '打つ時の幅',
+        useTime: '22',
         inspection: false,
         createAt: setDay(),
       },
       {
-        category: "arm",
-        disc: "情報のレベライズ04",
-        goal: "サーブの向上",
+        category: 'arm',
+        disc: '情報のレベライズ04',
+        goal: 'サーブの向上',
         id: 4,
-        part: "打つ時の幅",
-        useTime: "22",
+        part: '打つ時の幅',
+        useTime: '22',
         inspection: false,
         createAt: setDay(),
       },
@@ -68,11 +68,11 @@ export function initalPostsState(): PostState {
     isFetching: true,
     postItems: postItems,
     postItem: {
-      category: "",
-      useTime: "0",
-      part: "",
-      disc: "",
-      goal: "",
+      category: '',
+      useTime: '0',
+      part: '',
+      disc: '',
+      goal: '',
     },
   }
 }
@@ -94,58 +94,58 @@ export function postReducer(
   action: PostAction
 ) {
   switch (action.type) {
-    case "post/request":
+    case 'post/request':
       return {
         ...state,
         isFetching: true,
         postItems: [],
       }
-    case "post/success":
+    case 'post/success':
       return {
         ...state,
         isFetching: false,
-        postItems: action["postItems"],
+        postItems: action['postItems'],
       }
-    case "post/failure":
+    case 'post/failure':
       return {
         ...state,
         isFetching: false,
         postItems: [],
       }
-    case "post/add":
-      localStorage.setItem("postItems", JSON.stringify(action["postItems"]))
+    case 'post/add':
+      localStorage.setItem('postItems', JSON.stringify(action['postItems']))
       return {
         ...state,
         isFetching: false,
-        postItems: action["postItems"],
+        postItems: action['postItems'],
       }
-    case "post/set":
-      localStorage.setItem("postItems", JSON.stringify(action["postItems"]))
+    case 'post/set':
+      localStorage.setItem('postItems', JSON.stringify(action['postItems']))
       return {
         ...state,
         isFetching: false,
-        postItems: action["postItems"],
+        postItems: action['postItems'],
       }
-    case "post/update":
+    case 'post/update':
       const updateList = state.postItems.map((item: Post) => {
-        if (item.id === action["postItem"]?.id) {
-          return action["postItem"]
+        if (item.id === action['postItem']?.id) {
+          return action['postItem']
         }
         return item
       })
-      localStorage.setItem("postItems", JSON.stringify(updateList))
+      localStorage.setItem('postItems', JSON.stringify(updateList))
       return {
         ...state,
         isFetching: false,
         postItems: updateList,
       }
-    case "post/delete":
+    case 'post/delete':
       const deleteList = state.postItems.filter((item: Post) => {
-        if (item.id !== action["dataId"]) {
+        if (item.id !== action['dataId']) {
           return item
         }
       })
-      localStorage.setItem("postItems", JSON.stringify(deleteList))
+      localStorage.setItem('postItems', JSON.stringify(deleteList))
       return {
         ...state,
         isFetching: false,
@@ -158,7 +158,7 @@ export function postReducer(
 
 export const postFetchDataRequest = (): PostAction => {
   return {
-    type: "post/request",
+    type: 'post/request',
     postItems: [],
     postItem: {},
   }
@@ -166,7 +166,7 @@ export const postFetchDataRequest = (): PostAction => {
 
 export const postFetchDataSuccess = (data: Post[]): PostAction => {
   return {
-    type: "post/success",
+    type: 'post/success',
     postItems: data,
     postItem: {},
   }
@@ -174,7 +174,7 @@ export const postFetchDataSuccess = (data: Post[]): PostAction => {
 
 export const postFetchDataFailure = (err: string): PostActionFailure => {
   return {
-    type: "post/failure",
+    type: 'post/failure',
     err: err,
   }
 }

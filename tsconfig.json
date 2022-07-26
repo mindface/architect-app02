@@ -18,7 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "firebase": ["d.types/firebase"]
-    },
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

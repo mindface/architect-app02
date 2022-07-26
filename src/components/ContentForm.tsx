@@ -3,18 +3,18 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
-} from "react"
-import { InputNumber, Input, Select, DatePicker, Button, Switch } from "antd"
-import moment from "moment"
-import bodyPart from "../info/BodyPart.json"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
-import { AppDispatch } from "../store"
-import { Post, BodyPart } from "../types/posts"
-import { setDay } from "../helper/Utility"
+} from 'react'
+import { InputNumber, Input, Select, DatePicker, Button, Switch } from 'antd'
+import moment from 'moment'
+import bodyPart from '../info/BodyPart.json'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
+import { AppDispatch } from '../store'
+import { Post, BodyPart } from '../types/posts'
+import { setDay } from '../helper/Utility'
 
-const dateFormat = "YYYY/MM/DD"
+const dateFormat = 'YYYY/MM/DD'
 
 type Props = {
   formType: string
@@ -29,18 +29,18 @@ const ContentForm = forwardRef((props: Props, ref) => {
   const { Option } = Select
   const { TextArea } = Input
   const [state, stateSet] = useState<Post>({
-    category: "",
-    useTime: "0",
-    part: "",
-    disc: "",
-    goal: "",
+    category: '',
+    useTime: '0',
+    part: '',
+    disc: '',
+    goal: '',
     inspection: false,
     createAt: setDay(),
   })
   const [_posts, _postsSet] = useState<Post[]>([])
 
   const onInputChange = (value: string | boolean, type: string) => {
-    console.log("Change:", value)
+    console.log('Change:', value)
     stateSet({ ...state, [type]: value })
   }
 
@@ -56,7 +56,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
       createAt: state.createAt,
     }
     const postItems: Post[] = [..._posts, _postItem]
-    dispatch({ type: "post/add", postItems })
+    dispatch({ type: 'post/add', postItems })
     if (handleClose) handleClose()
   }
 
@@ -71,12 +71,12 @@ const ContentForm = forwardRef((props: Props, ref) => {
       inspection: state.inspection,
       createAt: state.createAt,
     }
-    dispatch({ type: "post/update", postItem })
+    dispatch({ type: 'post/update', postItem })
     if (handleClose) handleClose()
   }
 
   const deleteAction = () => {
-    dispatch({ type: "post/delete", dataId })
+    dispatch({ type: 'post/delete', dataId })
     if (handleClose) handleClose()
   }
 
@@ -90,15 +90,15 @@ const ContentForm = forwardRef((props: Props, ref) => {
 
   useEffect(() => {
     const item = post.filter((item: Post) => item.id === dataId)
-    if (formType === "create") {
+    if (formType === 'create') {
       stateSet({
-        category: "",
-        useTime: "",
-        part: "",
-        disc: "",
-        goal: "",
+        category: '',
+        useTime: '',
+        part: '',
+        disc: '',
+        goal: '',
         inspection: false,
-        createAt: "",
+        createAt: '',
       })
     } else {
       stateSet({
@@ -109,14 +109,14 @@ const ContentForm = forwardRef((props: Props, ref) => {
         disc: item[0].disc,
         goal: item[0].goal,
         inspection: item[0].inspection,
-        createAt: "",
+        createAt: '',
       })
     }
   }, [formType, dataId])
 
   return (
     <div className="c-div p-2">
-      {formType === "delete" ? (
+      {formType === 'delete' ? (
         <div className="fields">
           <div className="field pb-2">
             <p>この操作は取り消せません。削除しますか。</p>
@@ -133,7 +133,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
             <Select
               style={{ width: 240 }}
               value={state.category}
-              onChange={(value) => onInputChange(value, "category")}
+              onChange={(value) => onInputChange(value, 'category')}
             >
               {bodyPart.map((item: BodyPart) => (
                 <Option key={item.id} value={item.value}>
@@ -148,7 +148,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
               addonAfter="秒"
               value={state.useTime}
               onChange={(e) => {
-                onInputChange(String(e), "useTime")
+                onInputChange(String(e), 'useTime')
               }}
             />
           </div>
@@ -157,7 +157,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
             <DatePicker
               defaultValue={moment(state.createAt, dateFormat)}
               format={dateFormat}
-              onChange={(e) => onInputChange(setDay(String(e)), "createAt")}
+              onChange={(e) => onInputChange(setDay(String(e)), 'createAt')}
             />
           </div>
           <div className="field pb-2">
@@ -166,7 +166,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
               showCount
               maxLength={200}
               value={state.part}
-              onChange={(e) => onInputChange(e.target.value, "part")}
+              onChange={(e) => onInputChange(e.target.value, 'part')}
             />
           </div>
           <div className="field pb-1">
@@ -175,7 +175,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
               showCount
               maxLength={400}
               value={state.disc}
-              onChange={(e) => onInputChange(e.target.value, "disc")}
+              onChange={(e) => onInputChange(e.target.value, 'disc')}
             />
           </div>
           <div className="field pb-1">
@@ -184,18 +184,18 @@ const ContentForm = forwardRef((props: Props, ref) => {
               showCount
               maxLength={400}
               value={state.goal}
-              onChange={(e) => onInputChange(e.target.value, "goal")}
+              onChange={(e) => onInputChange(e.target.value, 'goal')}
             />
           </div>
           <div className="field pb-1">
             <p>検証アクションの有無</p>
             <Switch
               checked={state.inspection}
-              onChange={(e) => onInputChange(e, "inspection")}
+              onChange={(e) => onInputChange(e, 'inspection')}
             />
           </div>
           <div className="field pb-1">
-            {formType === "create" ? (
+            {formType === 'create' ? (
               <Button onClick={sendAction}>追加</Button>
             ) : (
               <Button onClick={updateAction}>更新</Button>

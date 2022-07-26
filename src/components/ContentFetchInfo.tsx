@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from "react"
-import { Card, Col, Row, Button, Modal, Tag } from "antd"
+import React, { useEffect, useState, useRef } from 'react'
+import { Card, Col, Row, Button, Modal, Tag } from 'antd'
 import {
   EditOutlined,
   FundViewOutlined,
   DeleteOutlined,
-} from "@ant-design/icons"
-import { Post, BodyPart } from "../types/posts"
-import { useSelector } from "react-redux"
-import { RootStore } from "../store/modules/reducer"
-import { setLabel } from "../helper/Utility"
+} from '@ant-design/icons'
+import { Post, BodyPart } from '../types/posts'
+import { useSelector } from 'react-redux'
+import { RootStore } from '../store/modules/reducer'
+import { setLabel } from '../helper/Utility'
 
-import ContentForm from "./ContentForm"
+import ContentForm from './ContentForm'
 
 function ContentFetchInfo() {
   const post = useSelector((state: RootStore) => state.post.postItems)
   const [isModalVisible, isModalVisibleSet] = useState(false)
   const [postId, postIdSet] = useState(0)
-  const [modalType, modalTypeSet] = useState("create")
+  const [modalType, modalTypeSet] = useState('create')
   const form = useRef<HTMLDivElement>(null)
 
   const showModal = () => {
@@ -34,13 +34,13 @@ function ContentFetchInfo() {
   const editAction = (id: number) => {
     isModalVisibleSet(true)
     postIdSet(id)
-    modalTypeSet("edit")
+    modalTypeSet('edit')
   }
   const viewAction = (id: number) => {}
   const deleteAction = (id: number) => {
     isModalVisibleSet(true)
     postIdSet(id)
-    modalTypeSet("delete")
+    modalTypeSet('delete')
   }
 
   return (

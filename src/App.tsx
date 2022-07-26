@@ -1,30 +1,30 @@
-import React, { useEffect } from "react"
-import { Routes, Route, useNavigate } from "react-router-dom"
-import Login from "./pages/Login"
-import Home from "./pages/Home"
-import About from "./pages/About"
-import InfoSettings from "./pages/InfoSettings"
-import Record from "./pages/Record"
-import Inspection from "./pages/Inspection"
-import PatternTrigger from "./pages/PatternTrigger"
-import Layout from "./layout/index"
-import "./App.css"
-import { useSelector } from "react-redux"
-import { RootStore } from "./store/modules/reducer"
+import React, { useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import Login from './pages/Login'
+import Home from './pages/Home'
+import About from './pages/About'
+import InfoSettings from './pages/InfoSettings'
+import Record from './pages/Record'
+import Inspection from './pages/Inspection'
+import PatternTrigger from './pages/PatternTrigger'
+import Layout from './layout/index'
+import './App.css'
+import { useSelector } from 'react-redux'
+import { RootStore } from './store/modules/reducer'
 
 function App() {
   const navigate = useNavigate()
   const user = useSelector((state: RootStore) => state.user.user)
 
   function checkerogin() {
-    if(user.name === ''){
+    if (user.name === '') {
       navigate('/login')
     }
   }
 
   useEffect(() => {
     checkerogin()
-  },[])
+  }, [])
 
   return (
     <div className="bg-b-c wrapper">
@@ -77,7 +77,7 @@ function App() {
             </Layout>
           }
         />
-      <Route
+        <Route
           path="/patternTrigger"
           element={
             <Layout>

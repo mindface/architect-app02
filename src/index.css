@@ -178,6 +178,10 @@ img {
 .f-align-c {
   align-items: center;
 }
+.flex-1 {
+  flex: 1;
+}
+
 .d-b {
   display: block;
 }

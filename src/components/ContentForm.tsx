@@ -40,7 +40,6 @@ const ContentForm = forwardRef((props: Props, ref) => {
   const [_posts, _postsSet] = useState<Post[]>([])
 
   const onInputChange = (value: string | boolean, type: string) => {
-    console.log('Change:', value)
     stateSet({ ...state, [type]: value })
   }
 

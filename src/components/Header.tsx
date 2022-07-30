@@ -22,6 +22,7 @@ function Header() {
     { id: '/record', label: 'カレンダーで確認' },
     { id: '/inspection', label: '検証調整' },
     { id: '/patternTrigger', label: '行動サイクルとトリガー' },
+    { id: '/phasedLevel', label: '既存アプリのツール単位' },
   ]
   const [visible, setVisible] = useState(false)
 

@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import InfoSettings from './pages/InfoSettings'
 import Record from './pages/Record'
+import PhasedLevel from './pages/PhasedLevel'
 import Inspection from './pages/Inspection'
 import PatternTrigger from './pages/PatternTrigger'
 import Layout from './layout/index'
@@ -82,6 +83,14 @@ function App() {
           element={
             <Layout>
               <PatternTrigger />
+            </Layout>
+          }
+        />
+        <Route
+          path="/phasedLevel"
+          element={
+            <Layout>
+              <PhasedLevel />
             </Layout>
           }
         />

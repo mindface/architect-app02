@@ -12,7 +12,6 @@ import ContentObForm from './ContentObForm'
 
 function ContentObPlan() {
   const observer = useSelector((state: RootStore) => {
-    console.log(state.observer)
     return state.observer.items
   })
   const [isModalVisible, isModalVisibleSet] = useState(false)

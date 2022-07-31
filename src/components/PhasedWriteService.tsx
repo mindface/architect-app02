@@ -1,5 +1,11 @@
 import React, { useState, ReactNode, useEffect } from 'react'
-import { Button, Card, Modal, Select, Empty, Input,
+import {
+  Button,
+  Card,
+  Modal,
+  Select,
+  Empty,
+  Input,
   Form,
   Radio,
   DatePicker,
@@ -7,30 +13,28 @@ import { Button, Card, Modal, Select, Empty, Input,
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '../store'
 
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
+const { RangePicker } = DatePicker
+const { TextArea } = Input
 
 type Props = {
   inputOn: boolean
 }
 
-function PhasedWriteService(props:Props) {
+function PhasedWriteService(props: Props) {
   const dispatch: AppDispatch = useDispatch()
-  const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
-  const [selectView, selectViewSet] = useState<string>("")
+  const [componentDisabled, setComponentDisabled] = useState<boolean>(true)
+  const [selectView, selectViewSet] = useState<string>('')
   const [state, stateSet] = useState({
-    goal: "",
-    lang: "",
-    day: "",
-    period: "",
+    goal: '',
+    lang: '',
+    day: '',
+    period: '',
   })
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
-    setComponentDisabled(disabled);
-  };
-
-  const selectViewAction = (e:string) => {
-
+    setComponentDisabled(disabled)
   }
+
+  const selectViewAction = (e: string) => {}
 
   return (
     <Form
@@ -40,9 +44,7 @@ function PhasedWriteService(props:Props) {
       initialValues={{ disabled: componentDisabled }}
       onValuesChange={onFormLayoutChange}
       disabled={props.inputOn}
-    >
-
-    </Form>
+    ></Form>
   )
 }
 

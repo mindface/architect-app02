@@ -1,11 +1,6 @@
-import React, {
-  useEffect,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
+import React, { useState } from 'react'
 import { Button, Tooltip, List, Input, Row, Col, Typography } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootStore } from '../store/modules/reducer'
 import {
   ShareAltOutlined,
@@ -14,7 +9,6 @@ import {
   DeleteOutlined,
   CopyOutlined,
 } from '@ant-design/icons'
-import { AppDispatch } from '../store'
 
 interface RecordType {
   key: string
@@ -24,7 +18,6 @@ interface RecordType {
 }
 
 function ContentPattern() {
-  const dispatch: AppDispatch = useDispatch()
   const item = useSelector((state: RootStore) => state.proportion.item)
   const [issues, issuesSet] = useState([
     { id: 1, text: '', itemId: -1, view: true },

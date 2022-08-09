@@ -7,29 +7,36 @@ import ContentThree from '../components/ContentThree'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootStore } from '../store/modules/reducer'
 import { AppDispatch } from '../store'
+import ElementCounter from '../components/ElementCounter'
+import ElementGraph from '../components/ElementGraph'
 const { Title } = Typography
 const { TabPane } = Tabs
 
 function PatternTrigger() {
+  const dispatch: AppDispatch = useDispatch()
   const item = useSelector((state: RootStore) => state.proportion.item)
 
   return (
     <div className="PatternTrigger p-2">
-      <Title level={4}>時間と記録情報の評価</Title>
-      <Tabs defaultActiveKey="1">
-        <TabPane tab="行動パターン" key="1">
-          <ContentPattern item={item} />
-        </TabPane>
-        <TabPane tab="トリガーと行動変更率" key="2">
-          <ContentPatternView item={item} />
-        </TabPane>
-        <TabPane tab="目的と問題の調整" key="3">
-          <ContentTrigger />
-        </TabPane>
-        <TabPane tab="ビジュアル化" key="4">
-          <ContentThree />
-        </TabPane>
-      </Tabs>
+      <div className="pb-2">
+        <Title level={4}>時間と記録情報の評価</Title>
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="行動パターン" key="1">
+            <ContentPattern item={item} />
+          </TabPane>
+          <TabPane tab="トリガーと行動変更率" key="2">
+            <ContentPatternView item={item} />
+          </TabPane>
+          <TabPane tab="目的と問題の調整" key="3">
+            <ContentTrigger />
+          </TabPane>
+          <TabPane tab="ビジュアル化" key="4">
+            <ContentThree />
+          </TabPane>
+        </Tabs>
+      </div>
+      <ElementCounter />
+      <ElementGraph />
     </div>
   )
 }

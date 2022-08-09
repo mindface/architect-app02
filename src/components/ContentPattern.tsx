@@ -10,7 +10,6 @@ import {
   Typography,
 } from 'antd'
 import { useDispatch } from 'react-redux'
-import { RootStore } from '../store/modules/reducer'
 import { AppDispatch } from '../store'
 import { Proportion } from '../types/proportion'
 const { Title } = Typography
@@ -60,12 +59,6 @@ function ContentPattern(props: Props) {
       }
     })
   }
-  const onChange = (value: number, type: string) => {
-    if (isNaN(value)) {
-      return
-    }
-    inputValueSet({ ...inputValue, [type]: value })
-  }
 
   const setAction = () => {
     const item = inputValue
@@ -76,7 +69,13 @@ function ContentPattern(props: Props) {
       return
     }
     dispatch({ type: 'proportion/set', item })
-    inputValueSet(itemData)
+  }
+
+  const onChange = (value: number, type: string) => {
+    if (isNaN(value)) {
+      return
+    }
+    inputValueSet({ ...inputValue, [type]: value })
   }
 
   useEffect(() => {

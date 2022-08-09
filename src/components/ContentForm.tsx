@@ -14,7 +14,17 @@ import { AppDispatch } from '../store'
 import { Post, BodyPart } from '../types/posts'
 import { setDay } from '../helper/Utility'
 
+import { testerData } from '../helper/Utility'
+
 const dateFormat = 'YYYY/MM/DD'
+
+const lll = [
+  { id: 1, text: 'skaoksoako', label: 'skoakos' },
+  { id: 2, text: 'skaoksoako', label: 'skoakos' },
+  { id: 3, text: 'skaoksoako', label: 'skoakos' },
+  { id: 4, text: 'skaoksoako', label: 'skoakos' },
+  { id: 5, text: 'skaoksoako', label: 'skoakos' },
+]
 
 type Props = {
   formType: string
@@ -111,6 +121,7 @@ const ContentForm = forwardRef((props: Props, ref) => {
         createAt: '',
       })
     }
+    testerData(lll, 'lll')
   }, [formType, dataId])
 
   return (

@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '../store'
 import firebaseConfig from '../info/firebase-config.json'
 
+import { testerData } from '../helper/Utility'
+
 function Header() {
   const dispatch: AppDispatch = useDispatch()
   const navigate = useNavigate()
@@ -23,6 +25,7 @@ function Header() {
     { id: '/inspection', label: '検証調整' },
     { id: '/patternTrigger', label: '行動サイクルとトリガー' },
     { id: '/phasedLevel', label: '既存アプリのツール単位' },
+    { id: '/reLang', label: '調査文字列' },
   ]
   const [visible, setVisible] = useState(false)
 
@@ -50,6 +53,10 @@ function Header() {
   const onClose = () => {
     setVisible(false)
   }
+
+  useEffect(() => {
+    testerData(pageList, 'pageList')
+  }, [])
 
   return (
     <>

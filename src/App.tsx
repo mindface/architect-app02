@@ -8,6 +8,7 @@ import Record from './pages/Record'
 import PhasedLevel from './pages/PhasedLevel'
 import Inspection from './pages/Inspection'
 import PatternTrigger from './pages/PatternTrigger'
+import ReLang from './pages/ReLang'
 import Layout from './layout/index'
 import './App.css'
 import { useSelector } from 'react-redux'
@@ -91,6 +92,14 @@ function App() {
           element={
             <Layout>
               <PhasedLevel />
+            </Layout>
+          }
+        />
+        <Route
+          path="/reLang"
+          element={
+            <Layout>
+              <ReLang />
             </Layout>
           }
         />

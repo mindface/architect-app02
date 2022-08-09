@@ -18,3 +18,9 @@ export const setDay = (day?: string) => {
   if (day) d = new Date(day)
   return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
 }
+
+const listtter = []
+
+export const testerData = <T>(data: T, type: string) => {
+  listtter.push(data)
+}

@@ -9,6 +9,7 @@ import PhasedLevel from './pages/PhasedLevel'
 import Inspection from './pages/Inspection'
 import PatternTrigger from './pages/PatternTrigger'
 import ReLang from './pages/ReLang'
+import Schema from './pages/Schema'
 import Layout from './layout/index'
 import './App.css'
 import { useSelector } from 'react-redux'
@@ -24,9 +25,9 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    checkerogin()
-  }, [])
+  // useEffect(() => {
+  //   checkerogin()
+  // }, [])
 
   return (
     <div className="bg-b-c wrapper">
@@ -100,6 +101,14 @@ function App() {
           element={
             <Layout>
               <ReLang />
+            </Layout>
+          }
+        />
+        <Route
+          path="/schema"
+          element={
+            <Layout>
+              <Schema />
             </Layout>
           }
         />

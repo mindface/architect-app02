@@ -26,6 +26,7 @@ function Header() {
     { id: '/patternTrigger', label: '行動サイクルとトリガー' },
     { id: '/phasedLevel', label: '既存アプリのツール単位' },
     { id: '/reLang', label: '調査文字列' },
+    { id: '/schema', label: '構造データ設計' },
   ]
   const [visible, setVisible] = useState(false)
 
@@ -65,7 +66,7 @@ function Header() {
           <div className="logo">
             <img src="/images/baseLogo.png" alt="" />
           </div>
-          {user.name !== '' && (
+          {user.name !== 'l' && (
             <Button type="primary" onClick={showDrawer}>
               <MenuOutlined />
             </Button>

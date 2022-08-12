@@ -4,12 +4,14 @@ import {
   useSelector as rawUseSelector,
 } from 'react-redux'
 import * as post from './data_action/post'
+import * as schema from './data_action/schema'
 import * as user from './data_action/user'
 import * as observer from './data_action/observer'
 import * as proportion from './data_action/proportion'
 
 export interface RootStore {
   post: post.PostState
+  schema: schema.SchemaState
   user: user.UserState
   observer: observer.ObserverState
   proportion: proportion.ProportionState
@@ -17,6 +19,7 @@ export interface RootStore {
 
 export const reducers = combineReducers({
   post: post.postReducer,
+  schema: schema.schemaReducer,
   user: user.userReducer,
   observer: observer.observerReducer,
   proportion: proportion.proportionReducer,

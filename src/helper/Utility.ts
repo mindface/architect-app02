@@ -24,3 +24,7 @@ const listtter = []
 export const testerData = <T>(data: T, type: string) => {
   listtter.push(data)
 }
+
+export const getRandom = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min) + min)
+}

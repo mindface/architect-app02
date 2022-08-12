@@ -1,10 +1,5 @@
-import React, {
-  useEffect,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import { Button, Carousel, Typography } from 'antd'
+import React from 'react'
+import { Carousel, Typography } from 'antd'
 
 const contentStyle: React.CSSProperties = {
   padding: '16px',

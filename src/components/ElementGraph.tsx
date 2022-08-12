@@ -428,7 +428,7 @@ function ElementGraph() {
               fill-opacity="1"
               stroke="#DC3912"
               stroke-width="2"
-              style={{strokeDasharray:"3000,3000"}}
+              style={{ strokeDasharray: '3000,3000' }}
             ></path>
             <circle
               cx="92.75"

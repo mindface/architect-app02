@@ -1,5 +1,5 @@
 import React from 'react'
-import ContentReLang from "../components/ContentReLang";
+import ContentReLang from '../components/ContentReLang'
 
 function ReLang() {
   return (

@@ -26,5 +26,5 @@ export const testerData = <T>(data: T, type: string) => {
 }
 
 export const getRandom = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min) + min)
+  return Math.floor((Math.random() * (max - min) + min) * 100) / 100
 }

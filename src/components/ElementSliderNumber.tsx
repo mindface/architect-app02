@@ -8,6 +8,9 @@ const { Title } = Typography
 type Props = {
   label?: string
   value?: number
+  step?: number
+  min?: number
+  max?: number
   valueChange: (value: number) => void
 }
 
@@ -32,19 +35,19 @@ function ElementSchemaControl(props: Props) {
         <Col span={18}>{props.label}</Col>
         <Col span={12}>
           <Slider
-            min={0}
-            max={1}
+            min={props.min ? props.min : 0}
+            max={props.max ? props.max : 1}
             onChange={onChange}
             value={typeof inputValue === 'number' ? inputValue : 0}
-            step={0.01}
+            step={props.step ? props.step : 0.01}
           />
         </Col>
         <Col span={4}>
           <InputNumber
-            min={0}
-            max={1}
+            min={props.min ? props.min : 0}
+            max={props.max ? props.max : 1}
             style={{ margin: '0 16px' }}
-            step={0.01}
+            step={props.step ? props.step : 0.01}
             value={inputValue}
             onChange={onChange}
           />

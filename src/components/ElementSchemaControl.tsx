@@ -17,7 +17,7 @@ function ElementSchemaControl(props: Props) {
   const [visible, setVisible] = useState(false)
   const [minValue, minValueSet] = useState(0)
   const [maxValue, maxValueSet] = useState(0)
-  const [inputValue, setInputValue] = useState(0)
+  const [loopValue, loopValueSet] = useState(0)
   const [state, stateSet] = useState<Schema>({
     id: -1,
     itemId: `level`,
@@ -33,7 +33,7 @@ function ElementSchemaControl(props: Props) {
       return
     }
 
-    setInputValue(value)
+    loopValueSet(value)
   }
 
   const showModal = () => {
@@ -57,7 +57,7 @@ function ElementSchemaControl(props: Props) {
   return (
     <div className="pl-1 pr-1 ">
       <Button type="primary" onClick={showModal}>
-        データビジュアル　コントロール
+        データビジュアル
       </Button>
       <Modal
         visible={visible}
@@ -92,41 +92,21 @@ function ElementSchemaControl(props: Props) {
           ランダム数値範囲
           <ElementSliderNumber
             label="最低値"
-            value={inputValue}
-            valueChange={onChange}
+            value={minValue}
+            valueChange={minValueSet}
           />{' '}
           ~
           <ElementSliderNumber
             label="最高値"
-            value={inputValue}
-            valueChange={onChange}
+            value={maxValue}
+            valueChange={maxValueSet}
           />
           <ElementSliderNumber
             label="ループ回数"
-            value={inputValue}
-            valueChange={onChange}
-          />
-          <p>ベース情報</p>
-          : category
-          <Input
-            value={state.category ? state.category : ''}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              handleSetState('category', e.target.value)
-            }}
-          />
-          : useTime
-          <Input
-            value={state.useTime ? state.useTime : ''}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              handleSetState('useTime', e.target.value)
-            }}
-          />
-          : disc
-          <Input
-            value={state.disc ? state.disc : ''}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              handleSetState('disc', e.target.value)
-            }}
+            value={loopValue}
+            step={1}
+            max={2000}
+            valueChange={loopValueSet}
           />
           : parentId
           <Select
@@ -135,8 +115,10 @@ function ElementSchemaControl(props: Props) {
             onChange={(value: string) => handleSetState('parentId', value)}
           >
             <Option value="originId">top level</Option>
-            {props.schemaItems.map((item) => (
-              <Option value={item.itemId}>{item.itemId}</Option>
+            {props.schemaItems.map((item, i) => (
+              <Option key={i} value={item.itemId}>
+                {item.itemId}
+              </Option>
             ))}
           </Select>
         </Space>

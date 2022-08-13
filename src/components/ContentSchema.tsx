@@ -9,27 +9,34 @@ import {
   Button,
   Input,
   Select,
+  Tag,
+  AutoComplete,
 } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootStore } from '../store/modules/reducer'
 import { AppDispatch } from '../store'
-import { getRandom } from '../helper/Utility'
 import { Schema } from '../types/schema'
 import {
   FileSearchOutlined,
   EditOutlined,
   DeleteOutlined,
   PlusCircleOutlined,
+  PartitionOutlined,
 } from '@ant-design/icons'
 import ElementSchemaControl from './ElementSchemaControl'
 import ElementSliderNumber from './ElementSliderNumber'
+import { getRandom } from "../helper/Utility";
 
 interface ReSchema extends Schema {
   children: Schema[]
 }
+interface moveObject {
+  [key: string]: string | number
+}
 const { Title } = Typography
 const { Option } = Select
+const { TextArea } = Input
 
 function ContentSchema() {
   const dispatch: AppDispatch = useDispatch()
@@ -40,31 +47,12 @@ function ContentSchema() {
   const [modalView, modalPostViewSet] = useState(false)
   const [modaSwitchlView, modaSwitchlViewhSet] = useState('create')
   const [minValue, minValueSet] = useState(0)
-  const [maxValue, maxValueSet] = useState(0)
-  const [inputValue, inputValueSet] = useState(0)
+  const [maxValue, maxValueSet] = useState(1)
+  const [loopValue, loopValueSet] = useState(0)
   const [addObjectKey, addObjectKeySet] = useState('')
-  const [addObjectValue, addObjectValueSet] = useState('')
-  const [addObject, addObjectSet] = useState({ id: 'number' })
-
-  const [stateData, stateDataSet] = useState([
-    {
-      listName: '',
-      list: [],
-    },
-  ])
-
-  const setData = (name: string) => {
-    const list = []
-    for (let index = 0; index < inputValue; index++) {
-      list.push({})
-    }
-    // stateDataSet([...stateData,{listName:name,list:list}])
-  }
-
-  const setAddObjectSet = () => {
-    addObjectSet({ ...addObject, [addObjectKey]: addObjectValue })
-  }
-
+  const [addObjectValue, addObjectValueSet] = useState<string>('')
+  const [conectPicup, conectPicupSet] = useState('')
+  const [addObject, addObjectSet] = useState<moveObject>({ id: 0 })
   const [state, stateSet] = useState<Schema>({
     id: -1,
     itemId: `level${schemaItems.length + 1}`,
@@ -74,6 +62,39 @@ function ContentSchema() {
     parentId: '',
     createAt: '',
   })
+  const [stateData, stateDataSet] = useState<
+    { listName: string; list: moveObject[] }[]
+  >([{ listName: '', list: [] }])
+
+  const AutoCompleteList = (): { value: string }[] =>
+    schemaItems.map((item) => {
+      return { value: item.itemId }
+    })
+  const setData = (name: string) => {
+    const list = []
+    for (let index = 0; index < loopValue; index++) {
+      let setObject = {
+        ...addObject,
+      }
+      for (const key in addObject) {
+        setObject = {
+          ...setObject,
+          id: index + 1,
+          [key]:
+            addObject[key] === 'number'
+              ? getRandom(minValue, maxValue)
+              : addObject[key],
+        }
+      }
+      list.push(setObject)
+    }
+    stateDataSet([...stateData, { listName: name, list: list }])
+    stateSet({ ...state, disc: String(JSON.stringify(addObject)) })
+  }
+
+  const setAddObjectSet = () => {
+    addObjectSet({ ...addObject, [addObjectKey]: addObjectValue })
+  }
 
   const resetState = () => {
     stateSet({
@@ -158,26 +179,52 @@ function ContentSchema() {
     }
     return list
   }
+  const setStateDataLength = (id: string) => {
+    let number = 0
+    stateData.forEach((item) => {
+      if (item.listName === id) {
+        number = item.list.length
+        return
+      }
+    })
+    return number
+  }
+
+  const setClass = (item: Schema, selectId: string) => {
+    if (item.itemId === selectId) return 'baseActive'
+    if (item.parentId === selectId) return 'itemActive'
+  }
 
   useEffect(() => {
-    console.log('schemaItems')
-    console.log(schemaItems)
-  }, [schemaItems])
+    console.log('stateData')
+    console.log(stateData)
+  }, [stateData])
 
   return (
     <div className="c-div p-2">
       <Space direction="vertical">
         <Title level={4}>
-          データ構造と関連性
-          <Button onClick={() => handleOpen('input_create')}>add</Button>
+          データ構造と関連性{' '}
         </Title>
-        <ElementSchemaControl schemaItems={schemaItems} />
+        <Button.Group>
+          <Button onClick={() => handleOpen('input_create')}>追加</Button>
+          <Button onClick={() => conectPicupSet('none')}>
+            remove<PartitionOutlined />
+          </Button>
+          <ElementSchemaControl schemaItems={schemaItems} />
+        </Button.Group>
       </Space>
       <Row gutter={16}>
         {schemaItems.map((item) => (
-          <Col key={item.id} span={8}>
+          <Col key={item.id} span={8} className="pt-2 pb-2">
             <Card
+              className={setClass(item, conectPicup)}
               title={item.category}
+              extra={
+                <Button onClick={() => conectPicupSet(item.itemId)}>
+                  <PartitionOutlined />
+                </Button>
+              }
               actions={[
                 <Button onClick={() => handleOpen('view')}>
                   <FileSearchOutlined key="setting" />
@@ -193,6 +240,7 @@ function ContentSchema() {
             >
               <p>カラム情報</p>
               {item.disc}
+              <p>データ構造数｜ {setStateDataLength(item.itemId)}</p>
             </Card>
           </Col>
         ))}
@@ -220,14 +268,9 @@ function ContentSchema() {
                 handleSetState('useTime', e.target.value)
               }}
             />
-            : disc [object]
-            <Input
-              value={state.disc ? state.disc : ''}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                handleSetState('disc', e.target.value)
-              }}
-            />
-            : parentId
+            : disc [object](データ構造部分での追加が反映されます。)
+            <TextArea rows={3} disabled value={state.disc ? state.disc : ''} />:
+            parentId
             <Select
               value={state.parentId ? state.parentId : 'originId'}
               style={{ width: 120 }}
@@ -254,31 +297,39 @@ function ContentSchema() {
                 }
                 placeholder="key"
               />
-              <Input
-                style={{ width: '30%' }}
+              <Select
                 value={addObjectValue}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  addObjectValueSet(e.target.value)
-                }
-                placeholder="value type (数値か文字列)"
-              />
+                onChange={(value: string) => addObjectValueSet(value)}
+                style={{ minWidth: '120px' }}
+              >
+                <Option value="number">数値</Option>
+                <Option value="string">文字列</Option>
+              </Select>
               <Button onClick={setAddObjectSet}>
                 <PlusCircleOutlined />
               </Button>
             </Input.Group>
             <div className="view-object">
               {setInfo(addObject).map((item) => (
-                <>
-                  key:{item.keyValue} | value:{item.value}{' '}
-                </>
+                <p>
+                  <Tag color="#2db7f5">key</Tag>:{item.keyValue}{' '}
+                  <Tag color="#108ee9">value</Tag>:{item.value}{' '}
+                </p>
               ))}
             </div>
+            <Input.Group compact>
+              紐づくId（カードのエディット部分で確認が可能です。）
+              <AutoComplete
+                style={{ width: '70%' }}
+                placeholder="itemId"
+                options={AutoCompleteList()}
+              />
+            </Input.Group>
             <ElementSliderNumber
               label="最低値"
               value={minValue}
               valueChange={minValueSet}
             />{' '}
-            ~
             <ElementSliderNumber
               label="最高値"
               value={maxValue}
@@ -286,10 +337,22 @@ function ContentSchema() {
             />
             <ElementSliderNumber
               label="ループ回数"
-              value={inputValue}
-              valueChange={inputValueSet}
+              value={loopValue}
+              step={1}
+              max={2000}
+              valueChange={loopValueSet}
             />
-            <Button onClick={handleCancel}>データを追加</Button>
+            <Button
+              onClick={() =>
+                setData(
+                  state.itemId !== ''
+                    ? state.itemId
+                    : `level${schemaItems.length + 1}`
+                )
+              }
+            >
+              データを追加
+            </Button>
           </Space>
         )}
         {modaSwitchlView === 'view' && (

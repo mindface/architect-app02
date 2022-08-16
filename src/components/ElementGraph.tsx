@@ -17,7 +17,6 @@ function ElementGraph() {
   const [planing, planingSet] = useState(0)
   const [play, playSet] = useState(0)
 
-  // アルゴリズム
   useEffect(() => {
     doingSet(item.level)
     levelSet(item.doing)

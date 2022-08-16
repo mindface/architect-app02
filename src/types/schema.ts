@@ -22,3 +22,15 @@ export interface ItemSchema {
   sub: string
   accout?: string
 }
+
+export interface ReSchema extends Schema {
+  children: Schema[]
+}
+
+export interface moveObjectItem {
+  listName: string;
+  list: moveObject[]
+}
+export interface moveObject {
+  [key: string]: string | number
+}

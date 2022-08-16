@@ -13,10 +13,9 @@ import {
   AutoComplete,
 } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { RootStore } from '../store/modules/reducer'
 import { AppDispatch } from '../store'
-import { Schema } from '../types/schema'
+import { Schema, ReSchema, moveObject, moveObjectItem } from '../types/schema'
 import {
   FileSearchOutlined,
   EditOutlined,
@@ -24,23 +23,16 @@ import {
   PlusCircleOutlined,
   PartitionOutlined,
 } from '@ant-design/icons'
-import ElementSchemaControl from './ElementSchemaControl'
+import ElementSchemaVisual from './ElementSchemaVisual'
 import ElementSliderNumber from './ElementSliderNumber'
 import { getRandom } from "../helper/Utility";
 
-interface ReSchema extends Schema {
-  children: Schema[]
-}
-interface moveObject {
-  [key: string]: string | number
-}
 const { Title } = Typography
 const { Option } = Select
 const { TextArea } = Input
 
 function ContentSchema() {
   const dispatch: AppDispatch = useDispatch()
-  const navigate = useNavigate()
   const schemaItems = useSelector(
     (state: RootStore) => state.schema.schemaItems
   )
@@ -64,7 +56,7 @@ function ContentSchema() {
   })
   const [stateData, stateDataSet] = useState<
     { listName: string; list: moveObject[] }[]
-  >([{ listName: '', list: [] }])
+  >([{ listName: 'none', list: [] }])
 
   const AutoCompleteList = (): { value: string }[] =>
     schemaItems.map((item) => {
@@ -91,7 +83,7 @@ function ContentSchema() {
     stateDataSet([...stateData, { listName: name, list: list }])
     stateSet({ ...state, disc: String(JSON.stringify(addObject)) })
   }
-
+  
   const setAddObjectSet = () => {
     addObjectSet({ ...addObject, [addObjectKey]: addObjectValue })
   }
@@ -170,6 +162,23 @@ function ContentSchema() {
     })
   }
 
+  const chnageSchemaList = () => {
+    const list: Array<{x:number,y:number}> = []
+    stateData.forEach((item:moveObjectItem) => {
+      item.list.forEach((obj) => {
+        const _obj = { x: 0, y: 0 }
+        for (const key in obj) {
+          if ( key === 'x' ||  key === 'y' && Object.prototype.hasOwnProperty.call(obj, key) && typeof obj[key] === 'number' ) {
+            _obj[key] = obj[key] as number
+          }
+        }
+        list.push(_obj)
+      });
+    });
+    console.log(stateData)
+    return list
+  }
+
   const setInfo = (objectInfo: any) => {
     const list: { keyValue: string; value: string }[] = []
     for (const key in objectInfo) {
@@ -195,11 +204,6 @@ function ContentSchema() {
     if (item.parentId === selectId) return 'itemActive'
   }
 
-  useEffect(() => {
-    console.log('stateData')
-    console.log(stateData)
-  }, [stateData])
-
   return (
     <div className="c-div p-2">
       <Space direction="vertical">
@@ -211,12 +215,12 @@ function ContentSchema() {
           <Button onClick={() => conectPicupSet('none')}>
             remove<PartitionOutlined />
           </Button>
-          <ElementSchemaControl schemaItems={schemaItems} />
+          <ElementSchemaVisual schemaItems={stateData} dates={chnageSchemaList()} />
         </Button.Group>
       </Space>
       <Row gutter={16}>
         {schemaItems.map((item) => (
-          <Col key={item.id} span={8} className="pt-2 pb-2">
+          <Col key={item.id} span={8} className="pt-4 pb-2">
             <Card
               className={setClass(item, conectPicup)}
               title={item.category}
@@ -232,7 +236,7 @@ function ContentSchema() {
                 <Button onClick={() => handleOpen('input_edit', item.id)}>
                   <EditOutlined key="edit" />
                 </Button>,
-                <Button onClick={() => handleOpen('delete', item.id)}>
+                <Button danger onClick={() => handleOpen('delete', item.id)}>
                   <DeleteOutlined key="ellipsis" />
                 </Button>,
               ]}
@@ -278,7 +282,7 @@ function ContentSchema() {
             >
               <Option value="originId">top level</Option>
               {schemaItems.map((item) => (
-                <Option value={item.itemId}>{item.itemId}</Option>
+                <Option key={item.itemId} value={item.itemId}>{item.itemId}</Option>
               ))}
             </Select>
             <Button.Group>
@@ -311,7 +315,7 @@ function ContentSchema() {
             </Input.Group>
             <div className="view-object">
               {setInfo(addObject).map((item) => (
-                <p>
+                <p key={item.keyValue}>
                   <Tag color="#2db7f5">key</Tag>:{item.keyValue}{' '}
                   <Tag color="#108ee9">value</Tag>:{item.value}{' '}
                 </p>

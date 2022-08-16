@@ -248,3 +248,29 @@ img {
 .ant-carousel .slick-dots li.slick-active button {
   background-color: #1891ff;
 }
+
+
+.ant-card.baseActive {
+  box-shadow: 0 0 0 2px #1288f0;
+}
+.ant-card.baseActive::after {
+  content: "ベーススキーマ";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  padding: 5px;
+  background-color: #1288f0;
+  color: #fff;
+}
+.ant-card.itemActive {
+  box-shadow: 0 0 0 2px #9dd8fc;
+}
+.ant-card.itemActive::after {
+  content: "アイテムスキーマ";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  padding: 5px;
+  background-color: #9dd8fc;
+  color: #243d53;
+}

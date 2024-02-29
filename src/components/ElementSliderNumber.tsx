@@ -17,12 +17,12 @@ type Props = {
 function ElementSchemaControl(props: Props) {
   const [inputValue, setInputValue] = useState(0)
 
-  const onChange = (value: number) => {
-    if (isNaN(value)) {
+  const onChange = (value: number | null) => {
+    if (value || isNaN(value ?? 0)) {
       return
     }
-    setInputValue(value)
-    props.valueChange(value)
+    setInputValue(value ?? 0)
+    props.valueChange(value ?? 0)
   }
 
   useEffect(() => {

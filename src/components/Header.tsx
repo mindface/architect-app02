@@ -76,7 +76,7 @@ function Header() {
           title="メニュー"
           placement="right"
           onClose={onClose}
-          visible={visible}
+          open={visible}
         >
           <ul className="list">
             {pageList.map((item: { id: string; label: string }) => {

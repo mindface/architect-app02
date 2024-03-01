@@ -89,7 +89,7 @@ function ContentCustom() {
       />
       <Modal
         title="時間で検証方法の確認"
-        visible={modalView}
+        open={modalView}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}

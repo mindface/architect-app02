@@ -77,7 +77,7 @@ function ContentFetchInfo() {
       </Row>
       <Modal
         title="Basic Modal"
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}

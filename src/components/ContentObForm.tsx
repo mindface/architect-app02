@@ -202,8 +202,8 @@ const ContentObForm = forwardRef((props: Props, ref) => {
           <div className="field pb-1">
             <p>達成率</p>
             <Slider
+              defaultValue={30}
               value={Number(state.goalRate)}
-              tipFormatter={(e) => formatter(e!)}
               onChange={(e) => onInputChange(String(e), 'goalRate')}
             />
           </div>

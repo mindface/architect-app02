@@ -110,7 +110,7 @@ function ElementSchemaVisual(props: Props) {
         データビジュアル
       </Button>
       <Modal
-        visible={visible}
+        open={visible}
         title="Title"
         onOk={handleOk}
         onCancel={handleCancel}

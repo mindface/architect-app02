@@ -64,7 +64,12 @@ function ContentPattern() {
           <Input
             value={item.title}
             placeholder="問題を入力してください。"
-            prefix={<ShareAltOutlined />}
+            prefix={<ShareAltOutlined
+            onChange={(e) => {
+              const inputElement = e.target as HTMLInputElement;
+              console.log(inputElement);
+              item.title = inputElement?.value }}
+            />}
           />
           <List
             header={<div>問題を分けてください。</div>}

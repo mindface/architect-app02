@@ -430,58 +430,55 @@ function ElementGraph() {
               style={{ strokeDasharray: '3000,3000' }}
             ></path>
             <circle
-              cx="92.75"
-              cy="288.00"
-              r="4"
+              cx={92.75}
+              cy={288.00}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
             <circle
-              cx="172.25"
-              cy="117.33"
-              r="4"
+              cx={172.25}
+              cy={117.33}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
             <circle
-              cx="251.75"
-              cy="202.67"
-              r="4"
+              cx={251.75}
+              cy={202.67}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
             <circle
-              cx="331.25"
-              cy="117.33"
-              r="4"
+              cx={331.25}
+              cy={117.33}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
             <circle
-              cx="410.75"
-              cy="32.00"
-              r="4"
+              cx={410.75}
+              cy={32.00}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
             <circle
-              cx="490.25"
-              cy="117.33"
-              r="4"
+              cx={490.25}
+              cy={117.33}
+              r={4}
               fill="#FFFFFF"
               stroke="#DC3912"
-              strokeWidth="2"
+              strokeWidth={2}
             ></circle>
           </g>
         </svg>
-
-        <circle cx="50" cy="50" r="2" />
-        <circle cx="150" cy="50" r="2" />
       </div>
     </div>
   )

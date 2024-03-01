@@ -57,7 +57,7 @@ function ElementGraph() {
             height="320"
             fill="#FFFFFF"
             stroke="none"
-            stroke-width="0"
+            strokeWidth="0"
           ></rect>
           <g className="zui-chart-grid">
             <line
@@ -66,10 +66,10 @@ function ElementGraph() {
               x2="53"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="132.5"
@@ -77,10 +77,10 @@ function ElementGraph() {
               x2="132.5"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="212"
@@ -88,10 +88,10 @@ function ElementGraph() {
               x2="212"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="291.5"
@@ -99,10 +99,10 @@ function ElementGraph() {
               x2="291.5"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="371"
@@ -110,10 +110,10 @@ function ElementGraph() {
               x2="371"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="450.5"
@@ -121,10 +121,10 @@ function ElementGraph() {
               x2="450.5"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="530"
@@ -132,10 +132,10 @@ function ElementGraph() {
               x2="530"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="53"
@@ -143,10 +143,10 @@ function ElementGraph() {
               x2="530"
               y2="32"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="53"
@@ -154,10 +154,10 @@ function ElementGraph() {
               x2="530"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="53"
@@ -165,10 +165,10 @@ function ElementGraph() {
               x2="530"
               y2="202.67"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="53"
@@ -176,10 +176,10 @@ function ElementGraph() {
               x2="530"
               y2="117.33"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
             <line
               x1="53"
@@ -187,10 +187,10 @@ function ElementGraph() {
               x2="530"
               y2="32"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#ccc"
-              stroke-dasharray="5,2"
-              stroke-width="1"
+              strokeDasharray="5,2"
+              strokeWidth="1"
             ></line>
           </g>
           <g className="zui-chart-axis-x">
@@ -200,9 +200,9 @@ function ElementGraph() {
               x2="53"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="132.5"
@@ -210,9 +210,9 @@ function ElementGraph() {
               x2="132.5"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="212"
@@ -220,9 +220,9 @@ function ElementGraph() {
               x2="212"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="291.5"
@@ -230,9 +230,9 @@ function ElementGraph() {
               x2="291.5"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="371"
@@ -240,9 +240,9 @@ function ElementGraph() {
               x2="371"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="450.5"
@@ -250,9 +250,9 @@ function ElementGraph() {
               x2="450.5"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="530"
@@ -260,9 +260,9 @@ function ElementGraph() {
               x2="530"
               y2="293"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
           </g>
           <g className="zui-chart-axis-y">
@@ -272,9 +272,9 @@ function ElementGraph() {
               x2="53"
               y2="288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="49"
@@ -282,9 +282,9 @@ function ElementGraph() {
               x2="53"
               y2="202.67"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="49"
@@ -292,9 +292,9 @@ function ElementGraph() {
               x2="53"
               y2="117.33"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
             <line
               x1="49"
@@ -302,9 +302,9 @@ function ElementGraph() {
               x2="53"
               y2="32"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></line>
           </g>
           <g className="zui-chart-labels zui-chart-labels-y">
@@ -312,41 +312,41 @@ function ElementGraph() {
               x="43"
               y="288"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="end"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="end"
             >
-              <tspan alignment-baseline="middle">3</tspan>
+              <tspan alignmentBaseline="middle">3</tspan>
             </text>
             <text
               x="43"
               y="202.67"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="end"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="end"
             >
-              <tspan alignment-baseline="middle">4</tspan>
+              <tspan alignmentBaseline="middle">4</tspan>
             </text>
             <text
               x="43"
               y="117.33"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="end"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="end"
             >
-              <tspan alignment-baseline="middle">5</tspan>
+              <tspan alignmentBaseline="middle">5</tspan>
             </text>
             <text
               x="43"
               y="32"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="end"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="end"
             >
-              <tspan alignment-baseline="middle">6</tspan>
+              <tspan alignmentBaseline="middle">6</tspan>
             </text>
           </g>
           <g className="zui-chart-labels zui-chart-labels-x">
@@ -354,9 +354,9 @@ function ElementGraph() {
               x="92.75"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2008
             </text>
@@ -364,9 +364,9 @@ function ElementGraph() {
               x="172.25"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2009
             </text>
@@ -374,9 +374,9 @@ function ElementGraph() {
               x="251.75"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2010
             </text>
@@ -384,9 +384,9 @@ function ElementGraph() {
               x="331.25"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2011
             </text>
@@ -394,9 +394,9 @@ function ElementGraph() {
               x="410.75"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2012
             </text>
@@ -404,9 +404,9 @@ function ElementGraph() {
               x="490.25"
               y="308"
               fill="#444"
-              font-family="Arial"
-              font-size="12px"
-              text-anchor="middle"
+              fontFamily="Arial"
+              fontSize="12px"
+              textAnchor="middle"
             >
               2013
             </text>
@@ -415,18 +415,18 @@ function ElementGraph() {
             <polyline
               points="53,32 53,288 530,288"
               fill="none"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
               stroke="#444"
-              stroke-width="1"
+              strokeWidth="1"
             ></polyline>
           </g>
-          <g className="zui-chart-canvas" clip-path="url(#zinoui-1)">
+          <g className="zui-chart-canvas" clipPath="url(#zinoui-1)">
             <path
               d="M92.75,288.00L172.25,117.33L251.75,202.67L331.25,117.33L410.75,32.00L490.25,117.33"
               fill="none"
-              fill-opacity="1"
+              fillOpacity="1"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
               style={{ strokeDasharray: '3000,3000' }}
             ></path>
             <circle
@@ -435,7 +435,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
             <circle
               cx="172.25"
@@ -443,7 +443,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
             <circle
               cx="251.75"
@@ -451,7 +451,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
             <circle
               cx="331.25"
@@ -459,7 +459,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
             <circle
               cx="410.75"
@@ -467,7 +467,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
             <circle
               cx="490.25"
@@ -475,7 +475,7 @@ function ElementGraph() {
               r="4"
               fill="#FFFFFF"
               stroke="#DC3912"
-              stroke-width="2"
+              strokeWidth="2"
             ></circle>
           </g>
         </svg>

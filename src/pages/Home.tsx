@@ -9,23 +9,23 @@ import ContentObPlan from '../components/ContentObPlan'
 
 const items: TabsProps['items'] = [
   {
-    key: '1',
-    label: 'データボード',
+    key: "1",
+    label: "データボード",
     children: <ContentFetchInfo />,
   },
   {
-    key: '2',
-    label: '改善ポイント入力',
+    key: "2",
+    label: "改善ポイント入力",
     children: <ContentForm formType="create" />,
   },
   {
-    key: '3',
-    label: '結果とフィードバック',
+    key: "3",
+    label: "結果とフィードバック",
     children: <ContentObForm formType="create" />,
   },
   {
-    key: '4',
-    label: '結果とフィードバック',
+    key: "4",
+    label: "結果とフィードバック",
     children: <ContentObPlan />,
   },
 ]

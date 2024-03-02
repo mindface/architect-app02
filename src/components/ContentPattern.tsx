@@ -200,7 +200,7 @@ function ContentPattern(props: Props) {
       </Row>
       <Modal
         title="入力値に問題があります。"
-        visible={isModalVisible}
+        open={isModalVisible}
         footer={null}
       >
         <Typography className="pb-2">

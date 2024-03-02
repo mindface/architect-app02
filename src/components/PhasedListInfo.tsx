@@ -103,7 +103,7 @@ function PhasedListInfo() {
           />
           <Modal
             title="edit"
-            visible={isModalVisible}
+            open={isModalVisible}
             onOk={() => editAction()}
             onCancel={handleCancel}
           >

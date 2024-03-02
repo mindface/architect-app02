@@ -63,8 +63,8 @@ function ContentReLang() {
             <p>意識している改善の身体部位</p>
             <Typography.Text mark>{modalPost?.part}</Typography.Text>
           </List.Item>
-          {viewList[viewListNumber - 1].map((item) => (
-            <List.Item>
+          {viewList[viewListNumber - 1].map((item, index) => (
+            <List.Item key={index}>
               <p>
                 <a
                   href={`https://www.google.com/search?q=${baseText}${item.text}`}

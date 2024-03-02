@@ -1,5 +1,6 @@
 import React, { useState, ReactNode, useEffect } from 'react'
 import { Button, Card, Modal, Select, Empty, Input, Tabs } from 'antd'
+import type { TabsProps } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootStore } from '../store/modules/reducer'
 import { AppDispatch } from '../store'
@@ -13,6 +14,19 @@ function ContentPhased() {
   const posts = useSelector((state: RootStore) => state.post.postItems)
   const [cardPost, cardPostSet] = useState<Post[]>([])
   const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const items: TabsProps['items'] = [
+    {
+      key: "1",
+      label: "考察入力",
+      children: <PhasedForm inputOn={cardPost.length === 0 ? false : true} />,
+    },
+    {
+      key: "2",
+      label: "関連サービス",
+      children: <PhasedListInfo />,
+    }
+  ]
 
   const showModal = () => {
     setIsModalVisible(true)
@@ -40,7 +54,7 @@ function ContentPhased() {
       </Button>
       <Modal
         title="Basic Modal"
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
@@ -83,14 +97,7 @@ function ContentPhased() {
           {cardPost.length == 0 && <Empty />}
         </div>
         <div className="input-box flex-1">
-          <Tabs defaultActiveKey="1">
-            <Tabs.TabPane tab="考察入力" key="1">
-              <PhasedForm inputOn={cardPost.length === 0 ? false : true} />
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="関連サービス" key="2">
-              <PhasedListInfo />
-            </Tabs.TabPane>
-          </Tabs>
+          <Tabs defaultActiveKey="1" items={items}></Tabs>
         </div>
       </div>
     </div>
